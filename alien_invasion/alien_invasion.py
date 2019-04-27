@@ -29,6 +29,14 @@ def run_game():
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
         bullets.update()
+
+        # 删除已消失的子弹
+        for bullet in bullets.copy():
+            if bullet.rect.bottom < 0:
+                bullets.remove(bullet)
+        
+        print('现存子弹数量:', len(bullets))
+
         gf.update_screen(ai_settings, screen, ship, bullets)
 
 
