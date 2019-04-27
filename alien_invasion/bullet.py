@@ -4,6 +4,7 @@
 import pygame
 from pygame.sprite import Sprite
 
+
 class Bullet(Sprite):
     """一个对飞船的子弹进行管理的类"""
 

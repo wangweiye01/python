@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import pygame
 
+import pygame
+from pygame.sprite import Group
+
+import game_functions as gf
 from settings import Settings
 from ship import Ship
-import game_functions as gf
-from pygame.sprite import Group
 
 
 def run_game():
