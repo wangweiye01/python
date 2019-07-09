@@ -14,7 +14,7 @@ plt.xlabel("Value", fontsize=14)
 plt.ylabel("Square", fontsize=14)
 
 plt.axis([0, 1100, 0, 1100000])
-# plt.show()
+plt.show()
 
 # 保存图标到文件
-plt.savefig('squares_plot.png', bbox_inches='tight')
+# plt.savefig('squares_plot.png', bbox_inches='tight')
