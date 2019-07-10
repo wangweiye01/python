@@ -5,7 +5,8 @@ import csv
 from matplotlib import pyplot as plt
 from datetime import datetime
 
-filename = 'sitka_weather_2014.csv'
+# filename = 'sitka_weather_2014.csv'
+filename = 'death_valley_2014.csv'
 
 with open(filename) as f:
     reader = csv.reader(f)
@@ -13,13 +14,16 @@ with open(filename) as f:
 
     dates, highs, lows = [], [], []
     for row in reader:
-        int_high = int(row[1])
-        current_date = datetime.strptime(row[0], "%Y-%m-%d")
-        low = int(row[3])
-
-        dates.append(current_date)
-        highs.append(int_high)
-        lows.append(low)
+        try:
+            int_high = int(row[1])
+            current_date = datetime.strptime(row[0], "%Y-%m-%d")
+            low = int(row[3])
+        except ValueError:
+            print(current_date, 'missing data')
+        else:
+            dates.append(current_date)
+            highs.append(int_high)
+            lows.append(low)
     
     # 根据数据绘制图形
     fig = plt.figure(dpi=128, figsize=(10, 6))
