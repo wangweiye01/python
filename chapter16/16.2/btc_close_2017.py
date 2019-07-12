@@ -8,6 +8,7 @@ except ImportError:
 import json
 import requests
 import pygal
+import math
 
 json_url = 'https://raw.githubusercontent.com/muxuezi/btc/master/btc_close_2017.json'
 req = requests.get(json_url)
@@ -34,5 +35,8 @@ line_chart.title = '收盘价（￥）'
 line_chart.x_labels = dates
 N = 20 # x轴坐标每隔20天显示一次
 line_chart.x_labels_major = dates[::N]
-line_chart.add('收盘价', close)
+
+close_log = [math.log10(_) for _ in close]
+
+line_chart.add('log收盘价', close_log)
 line_chart.render_to_file('收盘价折线图（￥）.svg')
