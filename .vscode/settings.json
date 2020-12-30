@@ -2,6 +2,5 @@
     "python.analysis.disabled": [
         "unresolved-import",
         "undefined-variable"
-    ],
-    "python.pythonPath": "/usr/local/bin/python3"
+    ]
 }
